@@ -26,7 +26,7 @@ load Inter, a custom Google Font.
   changeable. The state allows React components to manage and update their data, leading to UI updates when the state
   changes. React provides a method called setState to update the state and trigger a re-render of the component.
 
-  - To compare: Redux is better for larger apps when you need a global state but surely more complex with a lot of
+  - To compare: Redux is better for larger apps when we need a global state but surely more complex with a lot of
   boilerplate code. setState is for managing local component state while Redux provides a global store.
   
 
