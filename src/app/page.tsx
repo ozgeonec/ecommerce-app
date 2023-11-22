@@ -1,11 +1,10 @@
+import {redirect} from 'next/navigation'
 
-export default function Home() {
+export default async function Home() {
 
-  return (
-    <main>
-      <div>
-      hi
-      </div>
-    </main>
-  )
+    redirect('/home');
+
+    return (
+        <main></main>
+    );
 }
