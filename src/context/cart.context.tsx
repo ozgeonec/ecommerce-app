@@ -20,7 +20,7 @@ export const useShoppingCart = () => {
     return context;
 };
 
-export const ShoppingCartProvider: React.FC<ShoppingCartContextProps | undefined> = ({children}) => {
+export const ShoppingCartProvider: React.FC = ({children}:React.PropsWithChildren<ShoppingCartContextProps | undefined>) => {
 
     const [cart, setCart] = useState<ICart[]>([]);
 
