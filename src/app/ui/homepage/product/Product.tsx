@@ -6,33 +6,33 @@ import {useShoppingCart} from "../../../../context/cart.context";
 
 
 interface Props {
-    children: IProduct
+    product: IProduct
 }
 
-const Product: React.FC<Props> = ({children}) => {
+const Product: React.FC<Props> = ({product}) => {
 
     const {isHovered, handleMouseEnter, handleMouseLeave} = useProductHover();
     const {addToCart} = useShoppingCart();
 
     return (
         <Wrapper
-            key={children.id}
+            key={product.id}
         >
             <BgImage
-                style={{backgroundImage: `url(${children.image})`}}
+                style={{backgroundImage: `url(${product.image})`}}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
                 {isHovered && (
                     <Description>
                         <p>
-                            {children.description}
+                            {product.description}
                         </p>
                     </Description>
                 )}
             </BgImage>
-            <BrandName>{children.brand} - {children.name}</BrandName>
-            <DefaultButton onClick={() => addToCart(children)}>Add To Cart - ${children.price}</DefaultButton>
+            <BrandName>{product.brand} - {product.name}</BrandName>
+            <DefaultButton onClick={() => addToCart(product)}>Add To Cart - ${product.price}</DefaultButton>
         </Wrapper>
     );
 }

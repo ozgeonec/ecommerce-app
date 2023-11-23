@@ -26,7 +26,7 @@ const Layout: React.FC<Props> = () => {
             </SearchWrapper>
             <Container>
                 {visibleProducts.map((product) => (
-                    <Product key={product.id} children={product}/>
+                    <Product key={product.id} product={product}/>
                 ))}
             </Container>
             {isLoading && <LoadingIndicator>Loading...</LoadingIndicator>}

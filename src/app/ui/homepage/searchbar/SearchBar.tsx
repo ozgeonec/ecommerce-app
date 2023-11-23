@@ -18,9 +18,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     return (
         <SearchBarWrapper>
+            Search:
             <input
                 type="text"
-                placeholder="Search products by name"
+                placeholder="product name"
                 value={searchQuery}
                 onChange={handleSearch}
             />

@@ -26,10 +26,10 @@ export const LoadingIndicator = styled.div`
   text-align: center;
   margin: 20px;
   font-size: 1.2rem;
-`;
+`
 export const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  padding: 30px 0;
+  padding-bottom: 50px;
 `

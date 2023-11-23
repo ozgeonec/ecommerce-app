@@ -5,14 +5,19 @@ export const SearchBarWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  color: ${palette.lightTextColor};
+  align-items: center;
 
   input {
-    background-color: transparent;
+    background-color: ${palette.whiteColor};
     outline: none;
-    border: 1px solid ${palette.textColor};
+    border: none;
     color: ${palette.textColor};
     padding: 8px 16px 8px 6px;
-  }
-  
+    margin-left: 20px;
+    
+    &::placeholder{
+      color: ${palette.placeholderColor};
+    }
 }
 `

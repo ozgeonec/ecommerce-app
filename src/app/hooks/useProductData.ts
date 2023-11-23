@@ -73,7 +73,6 @@ const useProductData = (): UseProductDataProps => {
             );
             setVisibleProducts(filtered);
         }
-
     };
 
     return {
