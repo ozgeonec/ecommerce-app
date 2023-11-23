@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {getProducts} from '../lib/data/index';
 import {IProduct} from '../lib/Types/index';
 
@@ -17,6 +17,21 @@ const useProductData = (): UseProductDataProps => {
     const [visibleProducts, setVisibleProducts] = useState<IProduct[]>([]);
     const [displayCount, setDisplayCount] = useState(6);
     const [isLoading, setIsLoading] = useState(false);
+
+
+    const updateVisibleProducts = useCallback((count: number) => {
+        setVisibleProducts(products.slice(0, count));
+    }, [products, setVisibleProducts]);
+
+
+    const loadMore = useCallback(() => {
+        setIsLoading(true);
+        const newDisplayCount = displayCount + 3;
+        const newVisibleProducts = [...visibleProducts, ...products.slice(displayCount, newDisplayCount)];
+        setVisibleProducts(newVisibleProducts);
+        setDisplayCount(newDisplayCount);
+        setIsLoading(false);
+    },[displayCount, isLoading, products, setVisibleProducts, setDisplayCount, setIsLoading]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,20 +63,7 @@ const useProductData = (): UseProductDataProps => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [displayCount, isLoading]);
-
-    const updateVisibleProducts = (count: number) => {
-        setVisibleProducts(products.slice(0, count));
-    };
-
-    const loadMore = () => {
-        setIsLoading(true);
-        const newDisplayCount = displayCount + 3;
-        const newVisibleProducts = [...visibleProducts, ...products.slice(displayCount, newDisplayCount)];
-        setVisibleProducts(newVisibleProducts);
-        setDisplayCount(newDisplayCount);
-        setIsLoading(false);
-    };
+    }, [displayCount, isLoading, products.length]);
 
 
     const handleSearch = (query: string) => {

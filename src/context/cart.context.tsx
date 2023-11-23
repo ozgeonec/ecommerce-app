@@ -20,21 +20,12 @@ export const useShoppingCart = () => {
     return context;
 };
 
-export const ShoppingCartProvider: React.FC = ({children}) => {
-    //const [cart, setCart] = useState<ICart[]>(((typeof window !== 'undefined') && localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart') as string) : []);
+export const ShoppingCartProvider: React.FC<ShoppingCartContextProps | undefined> = ({children}) => {
+
     const [cart, setCart] = useState<ICart[]>([]);
-
-    /* useEffect(() => {
-         const storedCart = localStorage.getItem('cart');
-         if (storedCart) {
-             setCart(JSON.parse(storedCart));
-         }
-     }, []);*/
-
 
     const addToCart = (product: IProduct) => {
         const existingItem = cart.find((item) => item.product.id === product.id);
-        console.log('hhh', product)
 
         if (existingItem) {
             setCart((prevCart) =>
@@ -44,17 +35,14 @@ export const ShoppingCartProvider: React.FC = ({children}) => {
                         : item
                 )
             );
-
         } else {
             setCart((prevCart) => [...prevCart, {product, quantity: 1}]);
         }
-        console.log('updated', cart)
     };
 
 
     const removeFromCart = (productId: number) => {
         const isItemInCart = cart.find((cartItem) => cartItem.product.id === productId);
-        console.log(isItemInCart)
 
         if (isItemInCart.quantity === 1) {
             setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));
@@ -75,19 +63,6 @@ export const ShoppingCartProvider: React.FC = ({children}) => {
     const getQuantity = () => {
         return cart.reduce((totalQuantity, cartItem) => totalQuantity + cartItem.quantity, 0);
     }
-    /*
-        useEffect(() => {
-            const data = localStorage.getItem('cart');
-            if (data) {
-                setCart(JSON.parse(data));
-            }
-        }, []);
-
-
-        useEffect(() => {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log('Cart state updated:', cart);
-        }, [cart]);*/
 
     return (
         <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartTotal, getQuantity}}>
