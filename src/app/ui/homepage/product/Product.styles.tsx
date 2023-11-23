@@ -1,7 +1,9 @@
 import styled from 'styled-components'
+import * as palette from '../../../variables';
+
 
 export const DefaultButton = styled.button`
-  background-color: #f5832d;
+  background-color: ${palette.buttonColor};
   border: none;
   padding: 18px;
   color: white;
@@ -10,7 +12,7 @@ export const DefaultButton = styled.button`
   text-transform: uppercase;
 
   &:hover {
-    background-color: #fa8c39;
+    background-color: ${palette.buttonColorHover};
   }
 `
 export const Wrapper = styled.div`
@@ -28,7 +30,8 @@ export const BgImage = styled.div`
   width: 100%;
   position: relative;
   background-size: contain;
-  background: center no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
   height: 300px;
 `
 
@@ -40,7 +43,7 @@ export const Description = styled.div`
   bottom: 0;
 
   p {
-    color: black;
+    color: ${palette.textColor};
     padding: 10px;
     opacity: 1;
   }
@@ -49,7 +52,7 @@ export const Description = styled.div`
 export const BrandName = styled.p`
   width: 100%;
   text-align: left;
-  color: black;
+  color: ${palette.textColor};
   padding: 16px 0;
   font-weight: 600;
 `

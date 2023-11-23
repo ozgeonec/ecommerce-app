@@ -2,16 +2,17 @@ import React from "react";
 import {DefaultButton, Wrapper, BgImage, Description, BrandName} from './Product.styles.tsx';
 import {IProduct} from "../../../lib/Types/index";
 import useProductHover from "../../../hooks/useProductHover";
+import {useShoppingCart} from "../../../../context/cart.context";
 
 
 interface Props {
     children: IProduct
-    addToCart: () => void
 }
 
-const Product: React.FC<Props> = ({children, addToCart}) => {
+const Product: React.FC<Props> = ({children}) => {
 
     const {isHovered, handleMouseEnter, handleMouseLeave} = useProductHover();
+    const {addToCart} = useShoppingCart();
 
     return (
         <Wrapper
@@ -31,7 +32,7 @@ const Product: React.FC<Props> = ({children, addToCart}) => {
                 )}
             </BgImage>
             <BrandName>{children.brand} - {children.name}</BrandName>
-            <DefaultButton onClick={addToCart}>Add To Cart - ${children.price}</DefaultButton>
+            <DefaultButton onClick={() => addToCart(children)}>Add To Cart - ${children.price}</DefaultButton>
         </Wrapper>
     );
 }
