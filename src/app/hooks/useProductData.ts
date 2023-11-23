@@ -7,24 +7,19 @@ interface UseProductDataProps {
     visibleProducts: IProduct[];
     displayCount: number;
     isLoading: boolean;
-    updateVisibleProducts: (count: number) => void;
     loadMore: () => void;
     handleSearch: (query: string) => void;
 }
 
 const useProductData = (): UseProductDataProps => {
+
     const [products, setProducts] = useState<IProduct[]>([]);
     const [visibleProducts, setVisibleProducts] = useState<IProduct[]>([]);
     const [displayCount, setDisplayCount] = useState(6);
     const [isLoading, setIsLoading] = useState(false);
 
 
-    const updateVisibleProducts = (count: number) => {
-        setVisibleProducts(products.slice(0, count));
-    };
-
-
-    const loadMore =() => {
+    const loadMore = () => {
         setIsLoading(true);
         const newDisplayCount = displayCount + 3;
         const newVisibleProducts = [...visibleProducts, ...products.slice(displayCount, newDisplayCount)];
@@ -39,7 +34,7 @@ const useProductData = (): UseProductDataProps => {
                 setIsLoading(true);
                 const productsData = await getProducts();
                 setProducts(productsData);
-                updateVisibleProducts(displayCount);
+                setVisibleProducts(products.slice(0, displayCount));
             } catch (error) {
                 console.error('Error fetching products:', error);
             } finally {
@@ -61,15 +56,13 @@ const useProductData = (): UseProductDataProps => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-        loadMore();
-        updateVisibleProducts(displayCount);
 
     }, [displayCount, isLoading, products.length]);
 
 
     const handleSearch = (query: string) => {
         if (query.trim() === '') {
-            updateVisibleProducts(displayCount);
+            setVisibleProducts(products.slice(0, displayCount));
         } else {
             const filtered = visibleProducts.filter((product) =>
                 product.name.toLowerCase().includes(query.toLowerCase())
@@ -83,7 +76,6 @@ const useProductData = (): UseProductDataProps => {
         visibleProducts,
         displayCount,
         isLoading,
-        updateVisibleProducts,
         loadMore,
         handleSearch
     };
