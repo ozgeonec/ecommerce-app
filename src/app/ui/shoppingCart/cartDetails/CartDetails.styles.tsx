@@ -1,47 +1,21 @@
 import styled from "styled-components";
+import * as palette from '../../../variables';
 
-export const LogoWrapper = styled.div`
-  width: 100%;
+export const CartWrapper = styled.div`
+  position: relative;
   display: flex;
-  justify-content: flex-end;
-  border: 2px solid #000000;
-  border-radius: 6px;
-  padding: 4px;
-`
-export const CartLogo = styled.img`
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-`
-export const Quantity = styled.p`
-  color: #373737;
-  font-size: 24px;
-  line-height: 32px;
-  padding-right: 10px;
+  flex-direction: column;
+  width: fit-content;
+
+  p {
+    color: ${palette.textColor};
+  }
 `
 export const ModalTitle = styled.h3`
-  color: #373737;
+  color: ${palette.textColor};
   font-size: 24px;
   line-height: 32px;
   padding-bottom: 20px;
-`
-export const CartMainWrapper = styled.div`
-  position: relative;
-`
-export const CartModalWrapper = styled.div`
-  position: absolute;
-  right: 0;
-  z-index: 9;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  background-color: #d4d1d1;
-  border: 1px solid #373737;
-  padding: 20px;
-
-  p {
-    color: #373737;
-  }
 `
 
 export const ModalImg = styled.img`
@@ -56,18 +30,18 @@ export const ModalText = styled.div`
   h4 {
     font-size: 20px;
     font-weight: 700;
-    color: #373737;
+    color: ${palette.textColor};
     padding-bottom: 16px;
   }
 
   p {
     font-size: 16px;
-    color: #353535;
+    color: ${palette.lightTextColor};
     padding-bottom: 12px;
   }
 `
 export const Line = styled.div`
-  background-color: #373737;
+  background-color: ${palette.textColor};
   height: 1px;
   width: 100%;
   margin: 20px 0;
@@ -76,6 +50,7 @@ export const InnerModal = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 `
 export const ModalDetails = styled.div`
   display: flex;
@@ -87,10 +62,11 @@ export const RemoveButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  color: #373737;
+  color: ${palette.textColor};
   font-size: 14px;
   font-weight: 700;
   text-decoration: underline;
+  padding-top: 16px;
 `
 export const ModalBottom = styled.div`
   display: flex;
@@ -108,7 +84,7 @@ export const ModalBottomInner = styled.div`
   }
 
   span {
-    color: #373737;
+    color: ${palette.textColor};
     font-weight: 400;
     font-size: 14px;
   }

@@ -6,6 +6,8 @@ export interface ShoppingCartContextProps {
     cart: ICart[];
     addToCart: (product: IProduct) => void;
     removeFromCart: (productId: number) => void;
+    getQuantity: () => number;
+    getCartTotal: () => number;
 }
 
 export const CartContext = createContext<ShoppingCartContextProps | undefined>(undefined);
@@ -65,9 +67,6 @@ export const ShoppingCartProvider: React.FC = ({children}) => {
             );
         }
     };
-    const clearCart = () => {
-        setCart([]);
-    };
 
     const getCartTotal = () => {
         return cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
@@ -91,7 +90,7 @@ export const ShoppingCartProvider: React.FC = ({children}) => {
         }, [cart]);*/
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, getCartTotal, getQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartTotal, getQuantity}}>
             {children}
         </CartContext.Provider>
     );

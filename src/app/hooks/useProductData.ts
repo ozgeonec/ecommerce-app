@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { getProducts } from '../lib/data/index';
-import { IProduct } from '../lib/Types/index';
+import {useEffect, useState} from 'react';
+import {getProducts} from '../lib/data/index';
+import {IProduct} from '../lib/Types/index';
 
 interface UseProductDataProps {
     products: IProduct[];
@@ -9,6 +9,7 @@ interface UseProductDataProps {
     isLoading: boolean;
     updateVisibleProducts: (count: number) => void;
     loadMore: () => void;
+    handleSearch: (query: string) => void;
 }
 
 const useProductData = (): UseProductDataProps => {
@@ -47,22 +48,33 @@ const useProductData = (): UseProductDataProps => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [displayCount,isLoading]);
+    }, [displayCount, isLoading]);
 
     const updateVisibleProducts = (count: number) => {
         setVisibleProducts(products.slice(0, count));
     };
 
-    const loadMore = async () => {
+    const loadMore = () => {
         setIsLoading(true);
         const newDisplayCount = displayCount + 3;
-
-        setVisibleProducts([...visibleProducts, ...products.slice(displayCount, newDisplayCount)]);
+        const newVisibleProducts = [...visibleProducts, ...products.slice(displayCount, newDisplayCount)];
+        setVisibleProducts(newVisibleProducts);
         setDisplayCount(newDisplayCount);
-
         setIsLoading(false);
     };
 
+
+    const handleSearch = (query: string) => {
+        if (query.trim() === '') {
+            updateVisibleProducts(displayCount);
+        } else {
+            const filtered = visibleProducts.filter((product) =>
+                product.name.toLowerCase().includes(query.toLowerCase())
+            );
+            setVisibleProducts(filtered);
+        }
+
+    };
 
     return {
         products,
@@ -71,6 +83,7 @@ const useProductData = (): UseProductDataProps => {
         isLoading,
         updateVisibleProducts,
         loadMore,
+        handleSearch
     };
 };
 

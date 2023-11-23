@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./layout";
 
-const ShoppingCart = () => {
+const ShoppingCart:React.FC = () => {
 
     return (
         <Layout/>
