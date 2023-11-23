@@ -19,19 +19,19 @@ const useProductData = (): UseProductDataProps => {
     const [isLoading, setIsLoading] = useState(false);
 
 
-    const updateVisibleProducts = useCallback((count: number) => {
+    const updateVisibleProducts = (count: number) => {
         setVisibleProducts(products.slice(0, count));
-    }, [products, setVisibleProducts]);
+    };
 
 
-    const loadMore = useCallback(() => {
+    const loadMore =() => {
         setIsLoading(true);
         const newDisplayCount = displayCount + 3;
         const newVisibleProducts = [...visibleProducts, ...products.slice(displayCount, newDisplayCount)];
         setVisibleProducts(newVisibleProducts);
         setDisplayCount(newDisplayCount);
         setIsLoading(false);
-    },[displayCount, isLoading, products, setVisibleProducts, setDisplayCount, setIsLoading]);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,19 +50,20 @@ const useProductData = (): UseProductDataProps => {
 
         const handleScroll = () => {
             if (
-                window.innerHeight + window.scrollY >= document.body.scrollHeight - 100 &&
-                displayCount < products.length &&
-                !isLoading
+                (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 100) &&
+                (displayCount < products.length) && !isLoading
             ) {
                 loadMore();
             }
         };
-
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+        loadMore();
+        updateVisibleProducts(displayCount);
+
     }, [displayCount, isLoading, products.length]);
 
 
