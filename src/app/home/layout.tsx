@@ -1,17 +1,19 @@
 'use client'
 import React from "react";
-import {Wrapper,UpperSection, Container, LoadingIndicator} from './layout.styles';
+import {Wrapper, UpperSection, Container, LoadingIndicator, SearchWrapper} from './layout.styles';
 import Product from "../ui/homepage/product/Product";
 import useProductData from "../hooks/useProductData";
-import {useShoppingCart} from "../../context/cart.context";
 import Title from "../ui/homepage/title/Title";
-import CartModal from "../ui/homepage/cartModal/CartModal";
+import CartModal from "../ui/shoppingCart/cartModal/CartModal";
+import SearchBar from "../ui/homepage/searchbar/SearchBar";
 
+interface Props {
 
-const Layout: React.FC = () => {
+}
 
-    const {visibleProducts, loadMore, isLoading} = useProductData();
-    const {cart, addToCart, removeFromCart, getCartTotal, getQuantity} = useShoppingCart();
+const Layout: React.FC<Props> = () => {
+
+    const {visibleProducts, loadMore, isLoading, handleSearch} = useProductData();
 
     return (
         <Wrapper>
@@ -19,9 +21,12 @@ const Layout: React.FC = () => {
                 <Title/>
                 <CartModal/>
             </UpperSection>
+            <SearchWrapper>
+                <SearchBar onSearch={handleSearch}/>
+            </SearchWrapper>
             <Container>
                 {visibleProducts.map((product) => (
-                    <Product key={product.id} children={product} addToCart={() => addToCart(product)}/>
+                    <Product key={product.id} children={product}/>
                 ))}
             </Container>
             {isLoading && <LoadingIndicator>Loading...</LoadingIndicator>}

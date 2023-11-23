@@ -1,10 +1,31 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
+import {SearchBarWrapper} from "./SearchBar.styles";
 
-const SearchBar = () => {
+interface SearchBarProps {
+    onSearch: (query: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newQuery = event.target.value;
+        setSearchQuery(newQuery);
+        onSearch(newQuery);
+    };
 
     return (
-        <div>hi</div>
-    )
-}
+        <SearchBarWrapper>
+            <input
+                type="text"
+                placeholder="Search products by name"
+                value={searchQuery}
+                onChange={handleSearch}
+            />
+        </SearchBarWrapper>
+    );
+};
 
 export default SearchBar;

@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding-left: 30px;
   padding-right: 30px;
 `
+
 export const UpperSection = styled.div`
   display: flex;
   flex-direction: row;
@@ -26,3 +27,9 @@ export const LoadingIndicator = styled.div`
   margin: 20px;
   font-size: 1.2rem;
 `;
+export const SearchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 30px 0;
+`
