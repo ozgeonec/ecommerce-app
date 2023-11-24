@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import {DefaultButton, Wrapper, BgImage, Description, BrandName} from './Product.styles.tsx';
 import {IProduct} from "../../../lib/Types/index";
 import useProductHover from "../../../hooks/useProductHover";
 import {useShoppingCart} from "../../../../context/cart.context";
+import * as palette from '../../../variables';
 
 
 interface Props {
@@ -13,6 +14,14 @@ const Product: React.FC<Props> = ({product}) => {
 
     const {isHovered, handleMouseEnter, handleMouseLeave} = useProductHover();
     const {addToCart} = useShoppingCart();
+    const [color, setColor] = useState('#f5832d');
+
+    setTimeout(() => {
+        if (color === '#74c62c') {
+            setColor('#f5832d')
+        }
+
+    }, 3000);
 
     return (
         <Wrapper>
@@ -30,7 +39,12 @@ const Product: React.FC<Props> = ({product}) => {
                 )}
             </BgImage>
             <BrandName>{product.brand} - {product.name}</BrandName>
-            <DefaultButton onClick={() => addToCart(product)}>Add To Cart - ${product.price}</DefaultButton>
+            <DefaultButton color={color} onClick={() => {
+                addToCart(product);
+                setColor('#74c62c');
+            }}>
+                {color === '#74c62c' ? 'Added' : 'Add To Cart'} - ${product.price}
+            </DefaultButton>
         </Wrapper>
     );
 }

@@ -14,6 +14,7 @@ const useProductScroll = (
         isLoading: boolean;
     }
 ) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const handleScroll = () => {
             if (

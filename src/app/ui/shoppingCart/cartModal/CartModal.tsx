@@ -17,11 +17,10 @@ interface Props {
 
 const CartModal: React.FC<Props> = ({}) => {
 
+    const [isHovered, setISHovered] = useState(false);
     const {getQuantity} = useShoppingCart();
 
     let totalQuantity = getQuantity();
-
-    const [isHovered, setISHovered] = useState(false);
 
     return (
         <CartMainWrapper>

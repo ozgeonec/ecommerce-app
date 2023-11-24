@@ -2,7 +2,6 @@
 import React from "react";
 import {Wrapper, UpperSection, Container, LoadingIndicator, SearchWrapper, LoadButton} from './layout.styles';
 import Product from "../ui/homepage/product/Product";
-import useProductData from "../hooks/useProductData";
 import Title from "../ui/homepage/title/Title";
 import CartModal from "../ui/shoppingCart/cartModal/CartModal";
 import SearchBar from "../ui/homepage/searchbar/SearchBar";

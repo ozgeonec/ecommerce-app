@@ -11,10 +11,7 @@ export const Wrapper = styled.div`
   padding: 20px;
   border-radius: .5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
-
-  &:nth-child(3n+3) {
-
-  }
+  
 `
 export const BgImage = styled.div`
   width: 100%;
@@ -50,7 +47,6 @@ export const BrandName = styled.p`
 `
 
 export const DefaultButton = styled.button`
-  background-color: ${palette.buttonColor};
   border: none;
   padding: 18px;
   color: white;
@@ -58,8 +54,5 @@ export const DefaultButton = styled.button`
   font-weight: 600;
   text-transform: uppercase;
   border-radius: .5rem;
-
-  &:hover {
-    background-color: ${palette.buttonColorHover};
-  }
+  background-color: ${props => props.color};
 `

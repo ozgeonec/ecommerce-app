@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import {IProduct} from "../lib/Types/index";
 import {getProducts} from "../lib/data/index";
 
@@ -37,7 +37,7 @@ const useProductFetching = (
         }
     };
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -53,7 +53,8 @@ const useProductFetching = (
         };
         fetchData();
 
-        return () => {};
+        return () => {
+        };
     }, [setIsLoading, setProducts, setVisibleProducts, displayCount, products.length]);
 
     return {
