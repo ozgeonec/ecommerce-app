@@ -1,38 +1,30 @@
 import styled from 'styled-components'
 import * as palette from '../../../variables';
 
-
-export const DefaultButton = styled.button`
-  background-color: ${palette.buttonColor};
-  border: none;
-  padding: 18px;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  &:hover {
-    background-color: ${palette.buttonColorHover};
-  }
-`
 export const Wrapper = styled.div`
-  width: 33.3%;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${palette.whiteColor};
+  padding: 20px;
+  border-radius: .5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 
   &:nth-child(3n+3) {
-    padding-right: 0;
+
   }
 `
 export const BgImage = styled.div`
   width: 100%;
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 300px;
+  padding-bottom: 50%;
+  padding-top: 50%;
+  border-radius: .5rem;
 `
 
 export const Description = styled.div`
@@ -57,3 +49,17 @@ export const BrandName = styled.p`
   font-weight: 600;
 `
 
+export const DefaultButton = styled.button`
+  background-color: ${palette.buttonColor};
+  border: none;
+  padding: 18px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: .5rem;
+
+  &:hover {
+    background-color: ${palette.buttonColorHover};
+  }
+`

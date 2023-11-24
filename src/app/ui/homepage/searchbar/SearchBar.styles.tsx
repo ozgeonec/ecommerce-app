@@ -15,7 +15,7 @@ export const SearchBarWrapper = styled.div`
     color: ${palette.textColor};
     padding: 8px 16px 8px 6px;
     margin-left: 20px;
-    
+    border-radius: .3rem;
     &::placeholder{
       color: ${palette.placeholderColor};
     }

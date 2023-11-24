@@ -15,9 +15,7 @@ const Product: React.FC<Props> = ({product}) => {
     const {addToCart} = useShoppingCart();
 
     return (
-        <Wrapper
-            key={product.id}
-        >
+        <Wrapper>
             <BgImage
                 style={{backgroundImage: `url(${product.image})`}}
                 onMouseEnter={handleMouseEnter}

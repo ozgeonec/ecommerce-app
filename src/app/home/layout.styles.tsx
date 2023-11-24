@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import * as palette from '../variables';
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 100px;
 `
 
 export const UpperSection = styled.div`
@@ -17,10 +22,10 @@ export const UpperSection = styled.div`
 `
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
 `
 export const LoadingIndicator = styled.div`
   text-align: center;
@@ -32,4 +37,14 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: relative;
   padding-bottom: 50px;
+`
+export const LoadButton = styled.button`
+  width: fit-content;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid ${palette.textColor};
+  padding: 12px 20px;
+  color: ${palette.textColor};
+  cursor: pointer;
+  margin-top: 50px;
 `
