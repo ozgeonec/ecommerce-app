@@ -1,7 +1,6 @@
 import React from "react";
-import {Container} from './Title.styles.tsx';
+import {Container} from './Title.styles';
 import Link from "next/link";
-import {CartMainWrapper} from "../../shoppingCart/cartModal/CartModal.styles";
 
 interface Props {
 

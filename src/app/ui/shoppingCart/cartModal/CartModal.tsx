@@ -6,7 +6,7 @@ import {
     Quantity,
     CartMainWrapper,
     CartModalWrapper
-} from './CartModal.styles.tsx';
+} from './CartModal.styles';
 import Link from 'next/link'
 import {useShoppingCart} from "../../../../context/cart.context";
 import CartDetails from "../cartDetails/CartDetails";

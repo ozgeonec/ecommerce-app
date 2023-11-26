@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {DefaultButton, Wrapper, BgImage, Description, BrandName} from './Product.styles.tsx';
+import {DefaultButton, Wrapper, BgImage, Description, BrandName} from './Product.styles';
 import {IProduct} from "../../../lib/Types/index";
 import useProductHover from "../../../hooks/useProductHover";
 import {useShoppingCart} from "../../../../context/cart.context";

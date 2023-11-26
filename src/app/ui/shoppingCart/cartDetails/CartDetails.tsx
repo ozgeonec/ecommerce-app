@@ -11,7 +11,7 @@ import {
     RemoveButton,
     ModalBottom,
     ModalBottomInner
-} from './CartDetails.styles.tsx'
+} from './CartDetails.styles'
 import {useShoppingCart} from "../../../../context/cart.context";
 
 interface Props {
