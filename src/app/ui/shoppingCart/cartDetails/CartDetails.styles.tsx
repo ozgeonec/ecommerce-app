@@ -73,7 +73,6 @@ export const ModalBottom = styled.div`
   flex-direction: column;
 `
 
-
 export const ModalBottomInner = styled.div`
   display: flex;
   flex-direction: row;
@@ -88,4 +87,9 @@ export const ModalBottomInner = styled.div`
     font-weight: 400;
     font-size: 14px;
   }
+`
+
+export const EmptyCart = styled.p`
+  padding: 20px 0;
+  color: ${palette.lightTextColor} !important;
 `

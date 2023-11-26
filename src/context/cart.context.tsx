@@ -1,5 +1,5 @@
 'use client'
-import {createContext, useState, useEffect, useContext} from 'react';
+import {createContext, useContext, useState} from 'react';
 import {ICart, IProduct} from "../app/lib/Types/index";
 
 export interface ShoppingCartContextProps {
@@ -58,7 +58,8 @@ export const ShoppingCartProvider: React.FC<{ children: React.ReactNode }> = ({c
     };
 
     const getCartTotal = () => {
-        return cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+        const rawTotal = cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+        return Number(rawTotal.toFixed(2));
     };
 
     const getQuantity = () => {

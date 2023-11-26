@@ -10,7 +10,8 @@ import {
     ModalDetails,
     RemoveButton,
     ModalBottom,
-    ModalBottomInner
+    ModalBottomInner,
+    EmptyCart
 } from './CartDetails.styles'
 import {useShoppingCart} from "../../../../context/cart.context";
 
@@ -27,7 +28,8 @@ const CartDetails: React.FC<Props> = ({}) => {
     return (
         <CartWrapper>
             <ModalTitle>Your Cart</ModalTitle>
-            {cart.map((item) => {
+            {(cart.length === 0) && <EmptyCart>Your Cart is Empty</EmptyCart>}
+            {(cart.length > 0) && cart.map((item) => {
                 return (
                     <InnerModal key={item.product.id}>
                         <ModalDetails>
@@ -43,6 +45,7 @@ const CartDetails: React.FC<Props> = ({}) => {
                     </InnerModal>
                 );
             })}
+            {(cart.length > 0) &&
             <ModalBottom>
                 <ModalBottomInner>
                     <p>Subtotal: </p>
@@ -58,6 +61,7 @@ const CartDetails: React.FC<Props> = ({}) => {
                     <p>${cartTotalPrice}</p>
                 </ModalBottomInner>
             </ModalBottom>
+                }
         </CartWrapper>
     );
 }

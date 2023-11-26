@@ -1,8 +1,8 @@
 export const textColor = '#373737';
 
-export const lightTextColor = '#5f5e5e';
+export const lightTextColor = '#8f8e8e';
 
-export const placeholderColor = '#969393';
+export const placeholderColor = '#b7b4b4';
 
 export const bgColor = 'rgb(229, 231, 235)';
 
