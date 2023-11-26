@@ -18,7 +18,6 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={inter.className}>
-        {/* eslint-disable @typescript-eslint/no-var-requires */}
         <ShoppingCartProvider>
             {children}
         </ShoppingCartProvider>

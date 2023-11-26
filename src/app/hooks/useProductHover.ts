@@ -7,7 +7,7 @@ interface IUseProductHover {
 }
 
 const useProductHover = (): IUseProductHover => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
 
     const handleMouseEnter = (event: MouseEvent) => {
         setIsHovered(true);
