@@ -42,7 +42,7 @@ const Product: React.FC<Props> = ({product}) => {
                 )}
             </BgImage>
 
-            <BrandName>{product.brand} > {product.name}</BrandName>
+            <BrandName>{product.brand} - {product.name}</BrandName>
             <DefaultButton color={color} onClick={() => {
                 addToCart(product);
                 setColor(greenColor);
