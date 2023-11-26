@@ -43,9 +43,9 @@ export const ShoppingCartProvider: React.FC<{ children: React.ReactNode }> = ({c
 
 
     const removeFromCart = (productId: number) => {
-        const isItemInCart = cart.find((cartItem) => cartItem.product.id === productId);
+        const isItemInCart = cart?.find((cartItem) => cartItem.product.id === productId);
 
-        if (isItemInCart.quantity === 1) {
+        if (isItemInCart && isItemInCart.quantity === 1) {
             setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));
 
         } else {
