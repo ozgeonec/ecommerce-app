@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import * as palette from '../../../variables';
+import {device} from "../../../breakpoints";
 
 
 export const Container = styled.div`
@@ -16,6 +17,10 @@ export const Container = styled.div`
     line-height: 32px;
     font-weight: 700;
     cursor: pointer;
+    @media ${device.md} {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 
   p {
@@ -23,5 +28,10 @@ export const Container = styled.div`
     font-size: 18px;
     line-height: 24px;
     padding-top: 12px;
+    @media ${device.md} {
+      font-size: 14px;
+      line-height: 20px;
+      padding-top: 6px;
+    }
   }
 `

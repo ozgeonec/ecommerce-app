@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import * as palette from '../variables';
+import {device} from '../breakpoints';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,6 +27,13 @@ export const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
   row-gap: 20px;
   column-gap: 20px;
+  
+  @media ${device.md} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${device.sm} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 export const LoadingIndicator = styled.div`
   text-align: center;
