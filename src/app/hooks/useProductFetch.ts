@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {IProduct} from "../lib/Types/index";
 import {getProducts} from "../lib/data/index";
 
-const useProductFetching = (
+const useProductFetch = (
     {
         setProducts,
         setVisibleProducts,
@@ -62,4 +62,4 @@ const useProductFetching = (
     };
 };
 
-export default useProductFetching;
+export default useProductFetch;

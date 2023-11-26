@@ -5,22 +5,25 @@ import useProductHover from "../../../hooks/useProductHover";
 import {useShoppingCart} from "../../../../context/cart.context";
 import * as palette from '../../../variables';
 
-
-interface Props {
+export interface Props {
     product: IProduct
 }
 
 const Product: React.FC<Props> = ({product}) => {
 
+
     const {isHovered, handleMouseEnter, handleMouseLeave} = useProductHover();
     const {addToCart} = useShoppingCart();
-    const [color, setColor] = useState('#f5832d');
+
+    const orangeColor: string = palette.buttonColor;
+    const greenColor: string = palette.buttonColorAdded;
+
+    const [color, setColor] = useState<string>(orangeColor);
 
     setTimeout(() => {
-        if (color === '#74c62c') {
-            setColor('#f5832d')
+        if (color === greenColor) {
+            setColor(orangeColor)
         }
-
     }, 3000);
 
     return (
@@ -38,12 +41,12 @@ const Product: React.FC<Props> = ({product}) => {
                     </Description>
                 )}
             </BgImage>
-            <BrandName>{product.brand} - {product.name}</BrandName>
+            <BrandName>{product.name}</BrandName>
             <DefaultButton color={color} onClick={() => {
                 addToCart(product);
-                setColor('#74c62c');
+                setColor(greenColor);
             }}>
-                {color === '#74c62c' ? 'Added' : 'Add To Cart'} - ${product.price}
+                {color === greenColor ? 'Added' : 'Add To Cart'} - ${product.price}
             </DefaultButton>
         </Wrapper>
     );

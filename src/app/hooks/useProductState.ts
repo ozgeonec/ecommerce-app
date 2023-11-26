@@ -6,10 +6,10 @@ interface ProductState {
     visibleProducts: IProduct[];
     displayCount: number;
     isLoading: boolean;
-    setProducts: (products: IProduct[]) => IProduct[];
-    setVisibleProducts: (products: IProduct[]) => IProduct[]
-    setDisplayCount: (displayCount: number) => number
-    setIsLoading: (isLoading: boolean) => boolean
+    setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>;
+    setVisibleProducts: React.Dispatch<React.SetStateAction<IProduct[]>>;
+    setDisplayCount: React.Dispatch<React.SetStateAction<number>>;
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const useProductState = (): ProductState => {

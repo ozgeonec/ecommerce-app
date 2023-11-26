@@ -1,4 +1,4 @@
-import { useProductState, useProductFetching, useProductScroll, useProductSearch } from './index';
+import { useProductState, useProductFetch, useProductScroll, useProductSearch } from './index';
 import {IProduct} from "../lib/Types/index";
 
 interface UseProductDataProps {
@@ -22,7 +22,7 @@ const useHomepage = (): UseProductDataProps => {
         setIsLoading,
     } = useProductState();
 
-    const { loadMore } = useProductFetching({
+    const { loadMore } = useProductFetch({
         setProducts,
         setVisibleProducts,
         setDisplayCount,

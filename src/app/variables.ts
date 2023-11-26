@@ -10,4 +10,4 @@ export const whiteColor = '#FFFFFF';
 
 export const buttonColor = '#f5832d';
 
-export const buttonColorHover = '#fa8c39';
+export const buttonColorAdded = '#74c62c';
