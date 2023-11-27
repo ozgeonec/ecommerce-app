@@ -11,7 +11,6 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and
 load Inter, a custom Google Font.
@@ -27,13 +26,13 @@ load Inter, a custom Google Font.
   changes. React provides a method called setState to update the state and trigger a re-render of the component.
 
   - To compare: Redux is better for larger apps when we need a global state but surely more complex with a lot of
-  boilerplate code. setState is for managing local component state while Redux provides a global store.
+  boilerplate code. setState method is for managing local component state while Redux provides a global store.
   
 
 **Explain the concept of reconciliation in React and how it affects performance.**
 
 - It's for updating the DOM more efficiently. React creates a virtual DOM and compares it with the 'real' DOM and
-  updates only the changed UI, which effects performance in a good way because it avoids unnecessary DOM updates.
+  updates only the changed UI using the diffing algorithm, which effects performance in a good way because it avoids unnecessary DOM updates.
 
 **How can you implement code splitting and lazy loading in React to improve the
   initial load time of an application?**
