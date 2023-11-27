@@ -14,7 +14,7 @@ import {
 } from './CartDetails.styles.tsx'
 import {useShoppingCart} from "../../../../context/cart.context";
 
-interface Props {
+export interface Props {
 
 }
 

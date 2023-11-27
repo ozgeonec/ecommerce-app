@@ -1,4 +1,5 @@
-import { useState, MouseEvent } from 'react';
+'use client'
+import React, {useState, MouseEvent} from 'react';
 
 interface IUseProductHover {
     isHovered: boolean;
@@ -6,7 +7,7 @@ interface IUseProductHover {
     handleMouseLeave: (event: MouseEvent) => void;
 }
 
-const useProductHover = (): IUseProductHover => {
+export default function useProductHover () {
     const [isHovered, setIsHovered] = useState<boolean>(false);
 
     const handleMouseEnter = (event: MouseEvent) => {
@@ -17,11 +18,10 @@ const useProductHover = (): IUseProductHover => {
         setIsHovered(false);
     };
 
-    return {
+    return<IUseProductHover> {
         isHovered,
         handleMouseEnter,
         handleMouseLeave,
     };
 };
 
-export default useProductHover;
